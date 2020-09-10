@@ -72,6 +72,19 @@ confirm_added$province=plyr::revalue(confirm_added$province,c("서울"="0","부�
 colnames(confirm_added)<-c("id","confirmed")
 
 
+# 2-2 확진자 + 지도데이터 ---------------------------------------------------------
+
+# 지도 데이터와 확진자 수 데이터를 해당하는 지역에 알맞게 병합하고, 지도에 나타내 줍니다.
+# 각 지역별로 확진자 수를 넣고, 심각도에 따라 진한 색으로 나타내어 주었습니다.
+# 서울, 경기, 경북, 그리고 대구가 코로나 19 확진자가 가장 많은 심각 지역인 것으로 보입니다.
+
+korea_map=merge(korea_map,confirm_added, by="id")
+mycorona=ggplot() + geom_polygon(data=korea_map, aes(x=long, y=lat, group=group, fill=confirmed))
+mycorona+scale_fill_gradient(low = "#F1C5C5", high = "#D92027")+ 
+  theme_bw() +
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), 
+        panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 
+        plot.title = element_text(face = "bold", size = 18, hjust = 0.5))
 
 
 
