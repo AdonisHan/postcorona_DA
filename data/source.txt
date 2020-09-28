@@ -1,0 +1,7 @@
+download data 
+via
+※ 20200703 21:13: index.csv 데이터 업데이트
+
+https://bdp.kt.co.kr/invoke/SOKBP0000/
+https://bdp.kt.co.kr/invoke/SOKBP2508/?ntt_sn=25&reprt_cnrs_ty_code=01
+https://dacon.io/competitions/official/235618/data/
